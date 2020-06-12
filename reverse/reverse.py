@@ -42,11 +42,9 @@ class LinkedList:
         if node is None:
             return self
 
-        if node.next_node is not None:
-            self.reverse_list(node.next_node, node)
-        else:
+        if (next_node := node.next_node) is None:
             self.head = node
 
         node.next_node = prev
 
-        return self
+        return self.reverse_list(next_node, node)
